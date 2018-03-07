@@ -6,7 +6,8 @@ table {
   margin: 100px auto;
 }
 
-.title {
+.title,
+p {
   text-align: center;
   margin-top: 110px;
 }
