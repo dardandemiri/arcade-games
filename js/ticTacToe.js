@@ -43,3 +43,39 @@ function generateWinner() {
     // Who won?
   }
 }
+
+
+function factor(n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return n * factor(n - 1);
+  }
+}
+
+
+console.log(factor(1));
+
+function collatz(n) {
+
+  if (n == 1) {
+    return 1;
+  } else {
+    if (n % 2 == 0) {
+      console.log(n);
+      return 1 + collatz(n / 2);
+    } else {
+      console.log(n);
+      return 1 + collatz(3 * n + 1);
+    }
+  }
+
+}
+
+
+document.onscroll(kos);
+var i = 0;
+
+function kos() {
+  console.log(i++);
+}
