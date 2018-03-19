@@ -19,42 +19,86 @@
 </head>
 
 <body>
-  <div class="container">
-    <h2 class="title">
-      Tic Tac Toe</h2>
-    <div id="buttons">
-      <p>Select your choice:</p>
-      <button id="X" type="button" name="" id="" class="btn btn-secondary button">X</button>
-      <button id="O" type="button" name="" id="" class="btn btn-secondary button">O</button>
+
+  <nav class="navbar  navbar-expand-sm navbar-light bg-light sticky-top mb-3">
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse justify-content-center navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav  mt-2 mt-lg-0">
+        <li class="nav-item tttClass ">
+          <a class="nav-link " href="#">Tic Tac Toe
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item tenisClass ">
+          <a class="nav-link" href="#">Tenis</a>
+        </li>
+      </ul>
+
     </div>
-  
-    <p id="winner"></p>
-    <p id="winnerSec"></p>
-  
-    <table>
-      <tr>
-        <td id="a1"></td>
-        <td id="a2"></td>
-        <td id="a3"></td>
-      </tr>
-      <tr>
-        <td id="a4"></td>
-        <td id="a5"></td>
-        <td id="a6"></td>
-      </tr>
-      <tr>
-        <td id="a7"></td>
-        <td id="a8"></td>
-        <td id="a9"></td>
-      </tr>
-    </table>
+  </nav>
+
+  <div class="container text-center mt-2">
+    <section id="tenisSection">
+      <h2>Tenis Game</h2>
+      <canvas id="canvasID" width="1000" height="650"></canvas>
+
+
+    </section>
+
+    <section id="ticTacToeSection">
+
+
+      <h2 class="title">
+        Tic Tac Toe</h2>
+      <div id="buttons">
+        <p>Select your choice:</p>
+        <button id="X" type="button" name="" id="" class="btn btn-secondary button">X</button>
+        <button id="O" type="button" name="" id="" class="btn btn-secondary button">O</button>
+      </div>
+      <p id="winner"></p>
+      <p id="winnerSec"></p>
+
+      <table>
+        <tr>
+          <td id="a1"></td>
+          <td id="a2"></td>
+          <td id="a3"></td>
+        </tr>
+        <tr>
+          <td id="a4"></td>
+          <td id="a5"></td>
+          <td id="a6"></td>
+        </tr>
+        <tr>
+          <td id="a7"></td>
+          <td id="a8"></td>
+          <td id="a9"></td>
+        </tr>
+      </table>
+    </section>
   </div>
-  
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <!-- Optional JavaScript -->
   <script src="js/ticTacToe.js" charset="utf-8"></script>
+  <script src="js/tenis.js" charset="utf-8"></script>
+
+  <script>
+    $("#ticTacToeSection").show("slow");
+    $("#tenisSection").hide();
+    $(".tttClass").on("click", function () {
+      $("#ticTacToeSection").show("slow");
+      $("#tenisSection").hide();
+    });
+    $(".tenisClass").on("click", function () {
+      $("#ticTacToeSection").hide();
+      $("#tenisSection").show("slow");
+    });
+  </script>
 </body>
 
 </html>
