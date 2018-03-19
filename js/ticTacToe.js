@@ -55,16 +55,14 @@ function findPossibleCombinations() {
     var playerHasCombinations = []; //
 
     for(var k=0; k < combinations.length; k++) {
-        for(var j=0; j < combinations[k].length; j++) {
-            for(var i=0; i < playerMoves.length; i++) {
-                if (playerMoves[i] == combinations[k][j]) {
-                    playerHasCombinations.push(combinations[k]);
-                }
-            }
-        }
+      for(var i=0; i < playerMoves.length; i++) {
+          if (combinations[k].indexOf(playerMoves[i]) == -1) {
+              playerHasCombinations.push(combinations[k]);
+          }
+      }
     }
-    return steamrollArray(playerHasCombinations);
-}
+    return [].concat.apply([],playerHasCombinations);
+  }
 
 function findNumberWithMostPossibleCombinations() {
   var combinationsForPlayer = findPossibleCombinations();
@@ -75,8 +73,13 @@ function findNumberWithMostPossibleCombinations() {
     .join("")
     .match(new RegExp(""+combinationsForPlayer[k], "g"))
     .length;
+    
   
-    if (count > currCount && playerX.indexOf(combinationsForPlayer[k]+"") === -1) {
+    var bothPlayers = playerX.concat(playerO);
+    if(playerX.indexOf("1") >= 0 && playerX.indexOf("9") >= 0 || playerX.indexOf("7") >= 0 && playerX.indexOf("3") >= 0) {
+      return 4;
+    }
+    if (count > currCount && bothPlayers.indexOf(combinationsForPlayer[k]+"") === -1) {
       nextNumber = combinationsForPlayer[k];
       currCount = count;
     }
@@ -84,25 +87,29 @@ function findNumberWithMostPossibleCombinations() {
   return nextNumber;
 }
 
-function findNextWinningMove(playerMoves) {
-
+function findNextWinningMove(playerMoves, otherPlayerMoves) {
+  var missingMove = undefined;
   for(var k=0; k < combinations.length; k++) { 
     var count = [];
-    for(var j=0; j < playerMoves.length; j++) {
-      if(combinations[k].indexOf(playerMoves[j]) >= 0) {
-        count.push(combinations[k].indexOf(playerMoves[j]));
+    for(var j=0; j < playerMoves.length; j++) { //all moves
+        if(combinations[k].indexOf(playerMoves[j]) >= 0) {
+          count.push(combinations[k].indexOf(playerMoves[j])); 
+        }
+    }
+    if(count.length == 2) {
+      if(count.indexOf(0) == -1) {
+        missingMove = combinations[k][0];
+      }else if(count.indexOf(1) == -1) {
+        missingMove = combinations[k][1];
+      } else {
+        missingMove = combinations[k][2];
       }
     }
-    if(count.length > 1) {
-      if(count[0] != 0) {
-        return combinations[k][0];
-      }else if(count[1] != 1) {
-        return combinations[k][1];
-      } else {
-        combinations[k][2];
-      }
+    if(missingMove != undefined && otherPlayerMoves.indexOf(missingMove) == -1) {
+      return missingMove;
     }
   }
+  console.log("false");
 
   return false;
 }
@@ -217,20 +224,16 @@ function updateArray(target, player) {
 function randomComputerMove() {
   playerTurn = 0;
 
-
   if (allMoves != 0) {
-    var randomNr = findNextWinningMove(playerO);
-    if(randomNr == false) {
-      randomNr = findNumberWithMostPossibleCombinations();
+    var randomNr = findNextWinningMove(playerO.map(Number), playerX.map(Number)); //winn move
+    if(randomNr === false) {
+      var randomNr = findNextWinningMove(playerX.map(Number), playerO.map(Number)); //block player
+      if(randomNr === false) {
+        randomNr = findNumberWithMostPossibleCombinations();
+      }
     }
-    //var randomNr = Math.floor(Math.random() * 10);
-
-    if (randomNr == 0) {
-      randomNr = 1;
-    }
-
+    
     var id = document.getElementById("a" + randomNr);
-
 
     if (id.textContent == "") {
       id.textContent = choice2;
@@ -239,7 +242,7 @@ function randomComputerMove() {
       checkForWinner(playerO, choice2);
     } else {
       if (allMoves != 0) {
-        randomComputerMove();
+        // randomComputerMove();
       }
     }
   }
