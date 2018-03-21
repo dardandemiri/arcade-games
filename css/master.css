@@ -71,13 +71,14 @@ td:nth-child(2) {
   position: relative;
   width: 660px;
   height: 660px;
-  background-color: rgb(116, 116, 116);
   padding: 27px;
   border-radius: 100%;
+  background: #f6f8f9;
+  background: radial-gradient(ellipse at center, #f6f8f9 0%, #e5ebee 50%, #b6b6b6 80%, #555 100%);
 }
 
 .activatePanel {
-  box-shadow: 0px 0 30px rgb(0, 183, 255) !important;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.5) !important;
   opacity: 1 !important;
 }
 
@@ -89,12 +90,45 @@ td:nth-child(2) {
   position: absolute;
   top: 167px;
   left: 166px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-  border: 7px solid rgb(116, 116, 116);
+  border: 7px solid #ececec;
 }
 
 .circle p {
   padding: 0;
+  margin-top: 8px;
+}
+
+#level {
+  padding: 6px 16px 6px 16px;
+  background-color: red;
+  border-radius: 20%;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 3px solid rgb(182, 182, 182);
+}
+
+#start,
+#strict {
+  padding: 6px 24px 6px 24px;
+  background-color: rgb(145, 145, 145);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 3px solid rgb(224, 224, 224);
+}
+
+#start:hover,
+#strict:hover {
+  padding: 6px 24px 6px 24px;
+  background-color: rgb(49, 219, 15);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 3px solid rgb(224, 224, 224);
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -114,7 +148,7 @@ td:nth-child(2) {
     position: relative;
     width: 375px;
     height: 375px;
-    background-color: rgb(116, 116, 116);
+    background-color: radial-gradient(circle, rgb(235, 235, 235), rgb(119, 119, 119));
     padding: 15px;
     border-radius: 100%;
   }
