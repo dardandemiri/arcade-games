@@ -20,35 +20,19 @@
 
 <body>
 
-  <nav class="navbar  navbar-expand-sm navbar-light bg-light sticky-top mb-3">
-    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-      aria-expanded="false" aria-label="Toggle navigation"></button>
-    <div class="collapse justify-content-center navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav  mt-2 mt-lg-0">
-        <li class="nav-item tttClass ">
-          <a class="nav-link " href="#">Tic Tac Toe
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item tenisClass ">
-          <a class="nav-link" href="#">Tenis</a>
-        </li>
-      </ul>
-
-    </div>
-  </nav>
-
-  <div class="container text-center mt-2">
-    <section id="tenisSection">
-      <h2>Tenis Game</h2>
-      <canvas id="canvasID" width="1000" height="650"></canvas>
-
-
-    </section>
-
-    <section id="ticTacToeSection">
-
-
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Tic Tac Toe</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tenis Game</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="simon-tab" data-toggle="tab" href="#simon" role="tab" aria-controls="simon" aria-selected="true">Simon Game</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane text-center fade " id="home" role="tabpanel" aria-labelledby="home-tab">
       <h2 class="title">
         Tic Tac Toe</h2>
       <div id="buttons">
@@ -76,29 +60,116 @@
           <td id="a9"></td>
         </tr>
       </table>
-    </section>
+
+
+    </div>
+    <div class="tab-pane text-center fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      <h2 class="title">Tenis Game</h2>
+      <canvas id="canvasID" width="1000" height="650"></canvas>
+
+    </div>
+    <div class="tab-pane text-center fade show active" id="simon" role="tabpanel" aria-labelledby="simon-tab">
+
+      <!-- <h2 class="">Simon Game</h2> -->
+
+      <div class="container">
+
+        <div class="row justify-content-center mt-2">
+
+
+          <div class="simonContainer">
+
+            <div class="simonTab one p1"></div>
+
+            <div class="simonTab two p2"></div>
+
+            <div class="simonTab three p3"></div>
+
+            <div class="simonTab four p4"></div>
+
+            <div class="circle">
+              <div class="container">
+                <h3 class="mt-4 mb-0">Simon</h3>
+
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p>
+                      <span>1</span>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <span>2</span>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <span>2</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col">
+                    <p>Count:</p>
+                  </div>
+                  <div class="col">
+                    <p>Start:</p>
+                  </div>
+                  <div class="col">
+                    <p>Strict:</p>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="form-group">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+
   </div>
 
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <!-- Optional JavaScript -->
-  <script src="js/ticTacToe.js" charset="utf-8"></script>
-  <script src="js/tenis.js" charset="utf-8"></script>
 
-  <script>
-    $("#ticTacToeSection").show("slow");
-    $("#tenisSection").hide();
-    $(".tttClass").on("click", function () {
-      $("#ticTacToeSection").show("slow");
-      $("#tenisSection").hide();
-    });
-    $(".tenisClass").on("click", function () {
-      $("#ticTacToeSection").hide();
-      $("#tenisSection").show("slow");
-    });
-  </script>
+
+
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
+    crossorigin="anonymous "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
+    crossorigin="anonymous "></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+    crossorigin="anonymous "></script>
+  <!-- Optional JavaScript -->
+  <script src="js/ticTacToe.js " charset="utf-8 "></script>
+  <script src="js/tenis.js " charset="utf-8 "></script>
+  <script src="js/simon.js " charset="utf-8 "></script>
+
+
 </body>
 
 </html>
