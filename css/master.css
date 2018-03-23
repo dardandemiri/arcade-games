@@ -35,31 +35,28 @@ td:nth-child(2) {
 
 .one {
   background-color: rgb(0, 255, 0);
-  opacity: 0.5;
   border-radius: 500px 0 0 0;
 }
 
 .two {
   background-color: rgb(0, 17, 255);
-  opacity: 0.5;
   border-radius: 0 500px 0 0;
 }
 
 .three {
   background-color: rgb(255, 230, 0);
-  opacity: 0.5;
   border-radius: 0 0 0 500px;
 }
 
 .four {
   background-color: rgb(255, 0, 0);
-  opacity: 0.5;
   border-radius: 0 0 500px 0;
 }
 
 .simonTab {
   width: 300px;
   height: 300px;
+  opacity: 0.5;
   display: inline-block;
 }
 
@@ -78,7 +75,7 @@ td:nth-child(2) {
 }
 
 .activatePanel {
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0 40px rgba(0, 0, 0, 0.7) !important;
   opacity: 1 !important;
 }
 
@@ -117,6 +114,29 @@ td:nth-child(2) {
   font-size: 1.3rem;
   font-weight: bold;
   border: 3px solid rgb(224, 224, 224);
+  box-shadow: 0 4px 4px rgb(94, 94, 94);
+}
+
+.simonBtn:active {
+  margin-top: 11px;
+  margin-bottom: 17px;
+}
+
+.simonBtn:active #start {
+  box-shadow: 0 0px 0px rgb(94, 94, 94) !important;
+}
+
+.simonBtn:active #strict {
+  box-shadow: 0 0px 0px rgb(94, 94, 94) !important;
+}
+
+#start:active,
+#strict:active~.col p {
+  margin-top: 10px;
+}
+
+.activeButton {
+  background-color: rgb(49, 219, 15) !important;
 }
 
 #start:hover,
@@ -144,7 +164,7 @@ td:nth-child(2) {
     border: 7px solid rgb(116, 116, 116);
   }
   .simonContainer {
-    margin-top: 100px;
+    margin-top: 60px;
     position: relative;
     width: 375px;
     height: 375px;
@@ -157,9 +177,46 @@ td:nth-child(2) {
     height: 167px;
     display: inline-block;
   }
+  .smallDevice {
+    z-index: -54;
+    margin-top: 220px;
+  }
+  #start,
+  #strict {
+    padding: 6px 10px 6px 24px;
+    background-color: rgb(133, 133, 133);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 3px solid rgb(224, 224, 224);
+    cursor: pointer;
+  }
+  #start:hover,
+  #strict:hover {
+    padding: 6px 10px 6px 24px;
+    background-color: rgb(49, 219, 15);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 3px solid rgb(224, 224, 224);
+    cursor: pointer;
+  }
+  #levelP {
+    margin-top: 12px;
+  }
+  #level {
+    margin-top: 5px;
+    padding: 3px 10px 3px 10px;
+    background-color: red;
+    border-radius: 20%;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid rgb(182, 182, 182);
+  }
 }
-
-@media (max-width: 767.98px) {}
 
 .switch {
   position: relative;
@@ -182,6 +239,11 @@ td:nth-child(2) {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+* {
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 .slider:before {
