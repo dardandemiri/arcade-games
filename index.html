@@ -80,32 +80,32 @@
 
           <div class="simonContainer">
 
-            <div class="simonTab one p1"></div>
+            <div data-index-number="0" class="simonTab one p1"></div>
 
-            <div class="simonTab two p2"></div>
+            <div data-index-number="1" class="simonTab two p2"></div>
 
-            <div class="simonTab three p3"></div>
+            <div data-index-number="2" class="simonTab three p3"></div>
 
-            <div class="simonTab four p4"></div>
+            <div data-index-number="3" class="simonTab four p4"></div>
 
             <div class="circle">
               <div class="container">
                 <h2 class="mt-4 mb-4">Simon</h2>
 
-                <div class="row no-gutters">
+                <div class="row smallDevice no-gutters">
                   <div class="col">
-                    <p>
+                    <p id="levelP">
                       <span id="level">1</span>
                     </p>
                   </div>
                   <div class="col">
-                    <p>
-                      <span id="start"> </span>
+                    <p class="simonBtn">
+                      <span data-start="1" id="start"> </span>
                     </p>
                   </div>
                   <div class="col">
-                    <p>
-                      <span id="strict"> </span>
+                    <p class="simonBtn">
+                      <span data-strict="1" id="strict"> </span>
                     </p>
                   </div>
                 </div>
@@ -122,8 +122,8 @@
                 </div>
                 <div class="row mt-3 justify-content-center">
                   <div class="form-group">
-                    <label class="switch">
-                      <input type="checkbox" checked>
+                    <label for="checkBox" class="switch">
+                      <input id="checkBox" type="checkbox" name="checkBox">
                       <span class="slider round"></span>
                     </label>
                   </div>
@@ -153,10 +153,6 @@
 
 
 
-
-
-
-
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
     crossorigin="anonymous "></script>
@@ -164,6 +160,7 @@
     crossorigin="anonymous "></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
     crossorigin="anonymous "></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.min.js"></script>
   <!-- Optional JavaScript -->
   <script src="js/ticTacToe.js " charset="utf-8 "></script>
   <script src="js/tenis.js " charset="utf-8 "></script>
